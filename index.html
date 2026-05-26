@@ -23,10 +23,14 @@
         }
 
         .header {
-            background: var(--primary-grad);
+            /* 疊層漸層色彩 + 背景圖片，讓圖片不顯眼且有質感 */
+            background: linear-gradient(rgba(26, 95, 122, 0.85), rgba(34, 166, 179, 0.85)), url('img/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* 增加視差滾動效果，提升質感 */
             color: var(--white);
             text-align: center;
-            padding: 80px 20px;
+            padding: 100px 20px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
