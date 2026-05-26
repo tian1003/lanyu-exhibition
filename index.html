@@ -91,6 +91,7 @@
             object-fit: cover;
             border-radius: 8px;
             flex: 1;
+            transition: opacity 0.3s ease;
         }
 
         /* Tooltip Style */
@@ -223,10 +224,10 @@
         <!-- 展區 3 -->
         <section class="card">
             <h2>展區三：當代的聚落：野銀街景與十一鄰</h2>
-            <div class="img-grid">
-                <img src="img/bar1.jpg" alt="野銀酒吧 1">
-                <img src="img/bar2.jpg" alt="野銀酒吧 2">
-                <img src="img/bar3.jpg" alt="野銀酒吧 3">
+            <div class="img-grid" id="village-img-grid">
+                <img id="v-img1" src="img/bar1.jpg" alt="野銀酒吧 1">
+                <img id="v-img2" src="img/bar2.jpg" alt="野銀酒吧 2">
+                <img id="v-img3" src="img/bar3.jpg" alt="野銀酒吧 3">
             </div>
             <p>保留著傳統地下屋的野銀部落，在近年也融入了許多新世代的交流空間。無論是旅人還是小幫手，都在這裡留下足跡。</p>
             
@@ -244,17 +245,35 @@
     <script>
         function changeText(view) {
             const textElement = document.getElementById('village-text');
-            // 讓文字先淡出
+            const img1 = document.getElementById('v-img1');
+            const img2 = document.getElementById('v-img2');
+            const img3 = document.getElementById('v-img3');
+
+            // 讓文字與圖片先淡出
             textElement.style.opacity = 0;
+            img1.style.opacity = 0;
+            img2.style.opacity = 0;
+            img3.style.opacity = 0;
             
             setTimeout(() => {
                 if (view === 'tourist') {
                     textElement.innerHTML = `「來到十一鄰的酒吧，喝著特調看著星空，感受海風吹拂。真是太Chill了！推薦大家來野銀一定要來這裡打卡踩點！」`;
+                    // 換成觀光客視角的圖片 (bar 4, 5, 6)
+                    img1.src = 'img/bar4.jpg';
+                    img2.src = 'img/bar5.jpg';
+                    img3.src = 'img/bar6.jpg';
                 } else if (view === 'helper') {
                     textElement.innerHTML = `「今天房務終於結束了...累癱！下班後跟其他小幫手約在酒吧喝一杯，老闆又招待了飛魚，聊著今天客人發生的蠢事，這就是島上的生活日常啊。」`;
+                    // 把其他剩下的兩張補充照片放進來，並配上一張本來的照片完成小幫手視角
+                    img1.src = 'img/LINE_ALBUM_2024718_260526_2.jpg';
+                    img2.src = 'img/LINE_ALBUM_爹2_260526_2.jpg';
+                    img3.src = 'img/bar1.jpg';
                 }
-                // 替換後文字淡入
+                // 替換後文字與圖片淡入
                 textElement.style.opacity = 1;
+                img1.style.opacity = 1;
+                img2.style.opacity = 1;
+                img3.style.opacity = 1;
             }, 300);
         }
 
