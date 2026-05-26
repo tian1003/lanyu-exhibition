@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數位策展 Wireframe</title>
+    <style>
+        /* Figma 畫布環境 */
+        body {
+            background-color: #E5E5E5;
+            margin: 0;
+            padding: 80px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        /* 畫板 (Artboard) */
+        .artboard {
+            background-color: #FFFFFF;
+            width: 1150px;
+            padding: 60px;
+            border-radius: 4px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+            position: relative;
+        }
+
+        /* 標題區 */
+        .header {
+            margin-bottom: 50px;
+            border-bottom: 1px solid #EAEAEA;
+            padding-bottom: 24px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #333333;
+            margin: 0 0 12px 0;
+        }
+        .header p {
+            font-size: 15px;
+            color: #777777;
+            margin: 0;
+        }
+
+        /* 內容排版 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        /* 卡片設計 - Wireframe 風格 */
+        .wire-card {
+            border: 2px dashed #CCCCCC;
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: #FAFAFA;
+        }
+        
+        .wire-card h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #444444;
+            margin: 0 0 16px 0;
+        }
+
+        /* 圖片容器與相片 */
+        .img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: transparent;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 4px;
+            overflow: hidden;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .img-placeholder img {
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .img-box-1 img { width: 100%; }
+        .img-box-2 img { width: calc(50% - 2px); }
+        .img-box-3 img { width: calc(33.33% - 2.66px); }
+
+        /* 文字佔位骨架 (Skeleton) */
+        .text-skeleton {
+            width: 100%;
+            height: 14px;
+            background-color: #E0E0E0;
+            border-radius: 7px;
+            margin-bottom: 12px;
+        }
+        .text-skeleton.short {
+            width: 65%;
+            margin-bottom: 24px;
+        }
+
+        /* 模擬 UI 元件 */
+        .ui-component {
+            margin-top: auto;
+            background-color: #FFFFFF;
+            border: 2px solid #333333;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #333333;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            margin-top: auto;
+            display: flex;
+            border: 2px solid #333333;
+            border-radius: 20px;
+            padding: 4px;
+        }
+        .toggle-switch div {
+            flex: 1;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 8px 0;
+            border-radius: 16px;
+            color: #333333;
+        }
+        .toggle-switch .active {
+            background-color: #333333;
+            color: #FFFFFF;
+        }
+
+        /* Figma 註解 (Annotations) */
+        .annotation {
+            position: absolute;
+            background-color: #0D99FF;
+            color: #FFFFFF;
+            padding: 8px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1.5;
+            box-shadow: 0 4px 12px rgba(13, 153, 255, 0.3);
+            z-index: 10;
+        }
+        .annotation::after {
+            content: '';
+            position: absolute;
+            width: 0; 
+            height: 0; 
+        }
+
+        /* 註解 1 - 卡片一 */
+        .ano-1 {
+            top: -24px;
+            left: -20px;
+        }
+        .ano-1::after {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid #0D99FF;
+            bottom: -7px;
+            left: 30px;
+        }
+
+        /* 註解 2 - 卡片二 */
+        .ano-2 {
+            bottom: -30px;
+            left: -10px;
+        }
+        .ano-2::after {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 8px solid #0D99FF;
+            top: -7px;
+            left: 40px;
+        }
+
+        /* 註解 3 - 卡片三 */
+        .ano-3 {
+            bottom: -30px;
+            right: -10px;
+        }
+        .ano-3::after {
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 8px solid #0D99FF;
+            top: -7px;
+            right: 40px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="artboard">
+        <!-- 標題區 -->
+        <div class="header">
+            <h1>數位策展 Wireframe：島嶼的切面 (Desktop 1440px)</h1>
+            <p>Exhibition Path: 首頁引言 ➔ 海岸的信仰 (拼板舟) ➔ 漫步的財富 (山羊) ➔ 當代的聚落 (野銀街景)</p>
+        </div>
+
+        <!-- 卡片排版區 -->
+        <div class="grid-container">
+            
+            <!-- 卡片 1 -->
+            <div class="wire-card">
+                <div class="annotation ano-1">📍 互動點一：造舟密碼<br>(Hover Tooltip)</div>
+                <h2>展區 1: 海岸的信仰</h2>
+                <div class="img-placeholder img-box-1" title="Image: 海岸邊的拼板舟">
+                    <img src="img/tatala.jpg" alt="海岸邊的拼板舟">
+                </div>
+                <div class="text-skeleton"></div>
+                <div class="text-skeleton"></div>
+                <div class="text-skeleton short"></div>
+                <div class="ui-component">🔍 滑鼠懸停顯示：無釘工法與樹種</div>
+            </div>
+
+            <!-- 卡片 2 -->
+            <div class="wire-card">
+                <h2>展區 2: 漫步的財富</h2>
+                <div class="img-placeholder img-box-2" title="Image: 蘭嶼山羊群">
+                    <img src="img/goat1.jpg" alt="蘭嶼山羊群 1">
+                    <img src="img/goat2.jpg" alt="蘭嶼山羊群 2">
+                </div>
+                <div class="text-skeleton"></div>
+                <div class="text-skeleton"></div>
+                <div class="text-skeleton short"></div>
+                <div class="ui-component">🔍 滑鼠懸停顯示：達悟族耳號記號</div>
+                <div class="annotation ano-2">📍 互動點二：傳統密碼<br>引導理解原住民財產觀念</div>
+            </div>
+
+            <!-- 卡片 3 -->
+            <div class="wire-card">
+                <h2>展區 3: 當代的聚落</h2>
+                <div class="img-placeholder img-box-3" title="Image: 野銀十一鄰與小 T">
+                    <img src="img/bar1.jpg" alt="野銀街景 1">
+                    <img src="img/bar2.jpg" alt="野銀街景 2">
+                    <img src="img/bar3.jpg" alt="野銀街景 3">
+                </div>
+                <div class="text-skeleton"></div>
+                <div class="text-skeleton"></div>
+                <div class="text-skeleton short"></div>
+                
+                <div class="toggle-switch">
+                    <div class="active">觀光客視角</div>
+                    <div>小幫手視角</div>
+                </div>
+                
+                <div class="annotation ano-3">📍 互動點三：身分切換器<br>(Toggle Switch) 動態抽換文案</div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
